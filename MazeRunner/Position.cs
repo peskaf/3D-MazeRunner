@@ -54,6 +54,7 @@ namespace MazeRunner
             return !pos1.Equals(pos2);
         }
 
+        // for usage in dict
         public override int GetHashCode()
         {
             const int prime1 = 17;

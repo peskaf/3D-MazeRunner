@@ -36,6 +36,7 @@ namespace MazeRunner
 
             foreach (Ray ray in rays)
             {
+                // convert each ray into line that is to be displayed on screen
                 float currentAngle = Convert.ToSingle(gameMap.Player.Direction.GetAngle() - ray.Angle);
                 if (currentAngle < 0)
                 {

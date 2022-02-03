@@ -18,7 +18,7 @@ namespace MazeRunner
             this.Direction = direction;
             this.CurrPosition = position;
             this.StartPosition = position;
-            FOV = 50 * Math.PI / 180;
+            FOV = 50 * Math.PI / 180; // radians = degrees * PI / 180
         }
     }
 }
