@@ -43,101 +43,102 @@ Info that is being checked about Key is whether the particular key is up or down
 ## Technical documentation
 ### Classes, structures, enums:
 #### Direction - enum
-- **values**: Up, Down, Left, Right
+- **values**: *Up, Down, Left, Right*
 
 #### Tile - enum
-- **values**: Empty, Wall, Foundation
+- **values**: *Empty, Wall, Foundation*
 
 #### Point - struct
 - **properties**:
-  - double X - x coordinate of the point in the Cartesian system
-  - double Y - y coordinate of the point in the Cartesian system
+  - *double X* - x coordinate of the point in the Cartesian system
+  - *double Y* - y coordinate of the point in the Cartesian system
 
 #### Line - struct
 - **properties**:
-  - Point FirstPoint - first point of the line
-  - Point SecondPoint - second point of the line
+  - *Point FirstPoint* - first point of the line
+  - *Point SecondPoint* - second point of the line
 - **methods**:
-  - Point? GetIntersection(Line otherLine) - returns intersection point of two lines if it exists, otherwise returns null, implemented with method described [here](https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection#Formulas) 
+  - *Point? GetIntersection(Line otherLine)* - returns intersection point of two lines if it exists, otherwise returns null, implemented with method described [here](https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection#Formulas) 
 
 #### Position - struct
 - **properties**:
-  - int X - x coordinate of the position point (point on the grid)
-  - int Y - y coordinate of the position point (point on the grid)
+  - *int X* - x coordinate of the position point (point on the grid)
+  - *int Y* - y coordinate of the position point (point on the grid)
 - **methods**:
   - this struct overloads some basic operators like +, -, == and != so it can be easily compared and added/subtracted
   - there is also redefinition of the GetHashCode method so this struct can be used in Dictionaries as a key
 
 #### Ray - struct
 - **properties**:
-  - double Size - size of the ray (from player to the wall it hits)
-  - double Angle - angle it was casted from (reference (0 degrees) is player's looking direction)
-  - Direction WallHit - which side of the wall was hit
+  - *double Size* - size of the ray (from player to the wall it hits)
+  - *double Angle* - angle it was casted from (reference (0 degrees) is player's looking direction)
+  - *Direction WallHit* - which side of the wall was hit
 
 #### Vector
 - **properties**: 
-  - double X - x coordinate of the vector in the Cartesian system
-  - double Y - y coordinate of the vector in the Cartesian system
+  - *double X* - x coordinate of the vector in the Cartesian system
+  - *double Y* - y coordinate of the vector in the Cartesian system
 - **methods**:
-  - Vector RotateCounterclockwise(double angle) - rotates Vector object counterclockwise by given angle
-  - Vector RotateClockwise(double angle) - rotates Vector object clockwise by given angle
-  - double GetAngle() - returns angle in radians; angle that vector forms with (1,0)^T vector
+  - *Vector RotateCounterclockwise(double angle)* - rotates Vector object counterclockwise by given angle
+  - *Vector RotateClockwise(double angle)* - rotates Vector object clockwise by given angle
+  - *double GetAngle()* - returns angle in radians; angle that vector forms with (1,0)^T vector
 
 #### Player
 - **properties**:
-  - Vector Direction - current looking direction of the player
-  - Position CurrPosition - current position of the player
-  - Position StartPosition - starting position of the player
-  - int Step - size of player's step - how much he's able to move each frame
-  - double FOV - field of view (in radians)
-  - double RotationSpeed - by how much degrees is player able to rotate each frame
-  - bool IsKilled - info whether player was caught by Guardian to end the game properly
+  - *Vector Direction* - current looking direction of the player
+  - *Position CurrPosition* - current position of the player
+  - *Position StartPosition* - starting position of the player
+  - *int Step* - size of player's step - how much he's able to move each frame
+  - *double FOV* - field of view (in radians)
+  - *double RotationSpeed* - by how much degrees is player able to rotate each frame
+  - *bool IsKilled* - info whether player was caught by Guardian to end the game properly
 
 #### Guardian
 - **properties**:
-  - Position CurrPosition - current guardians’s position
-  - Position StartPosition- starting position of the guardian
-  - int Step - size of enemy’s step (in the same manner as Player’s one)
-  - Bitmap Texture - enemy's texture (square texture)
-  - long SpawnTime - millis to elapse before guradian spawns
-  - bool IsSpawned - info whether enemy spawned
-  - int StepsToMake - how much steps to make before computing next path (BFS)
-  - Tuple<int, int> nextStepDirection - which way to go next
+  - *Position CurrPosition* - current guardians’s position
+  - *Position StartPosition* - starting position of the guardian
+  - *int Step* - size of enemy’s step (in the same manner as Player’s one)
+  - *Bitmap Texture* - enemy's texture (square texture)
+  - *long SpawnTime* - millis to elapse before guradian spawns
+  - *bool IsSpawned* - info whether enemy spawned
+  - *int StepsToMake* - how much steps to make before computing next path (BFS)
+  - *Tuple<int, int>* nextStepDirection - which way to go next
 - **methods**:
-  - Dictionary<Position, Position?> BFS(Position from, Position to, Map map) - performs BFS from position from to position to on the given map and returns dict of predecessors
-  - Position GetNextPosition(Position from, Position to, Map map) - returns the tile guardian needs to go next
-  - void Move(GameMap gameMap) - handles moving; moves if it has steps to make, if not, compute it's way and move that way
+  - *Dictionary<Position, Position?> BFS(Position from, Position to, Map map)* - performs BFS from position from to position to on the given map and returns dict of predecessors
+  - *Position GetNextPosition(Position from, Position to, Map map)* - returns the tile guardian needs to go next
+  - *void Move(GameMap gameMap)* - handles moving; moves if it has steps to make, if not, compute it's way and move that way
 
 #### Map
 - **properties**:
-  - int GridSize - number of tiles on one side (width=height), odd and > 3
-  - Tile[,] Grid - grid where info about existence of wall/foundation/empty space on each tile is stored
-  - int TileSize - size of one tile in the grid (width=height)
+  - *int GridSize* - number of tiles on one side (width=height), odd and > 3
+  - *Tile[,] Grid* - grid where info about existence of wall/foundation/empty space on each tile is stored
+  - *int TileSize* - size of one tile in the grid (width=height)
 - **methods** (described closely [here](https://github.com/peskaf/2D-MazeRunner)):
-  - void CreateFoundation() - creation of template to build maze in
-  - int FoundationsLeft() - returns how many foundations there are left in the grid
-  - Position GetRandomFoundationPosition(Random random) - get random foundation to build wall from
-  - void BuildWall(Random random) - build wall from returned random foundation
-  - void BuildMaze() - handle all building functions
+  - *void CreateFoundation()* - creation of template to build maze in
+  - *int FoundationsLeft()* - returns how many foundations there are left in the grid
+  - *Position GetRandomFoundationPosition(Random random)* - get random foundation to build wall from
+  - *void BuildWall(Random random)* - build wall from returned random foundation
+  - *void BuildMaze()* - handle all building functions
 
 #### GameMap
 - **attributes**:
-  - Map map - map game takes place in (maze)
-  - Player player - player that is set into the map
-  - Guardian guardian - guardian that is set into the map
+  - *Map map* - map game takes place in (maze)
+  - *Player player* - player that is set into the map
+  - *Guardian guardian* - guardian that is set into the map
 - **methods**:
-  - Ray Raycast(Position pos, Vector direction, int max) - cast one ray and return it, takes player's position, his looking direction and max ray size allowed
-  - List<Ray> CastRays(int screenWidth) - cast all the rays to fill the screen width
+  - *Ray Raycast(Position pos, Vector direction, int max)* - cast one ray and return it, takes player's position, his looking direction and max ray size allowed
+  - *List<Ray> CastRays(int screenWidth)* - cast all the rays to fill the screen width
 
 ### Functions:
-- void Render(GameMap gameMap) - renders everything, i.e scene, minimap, sprite (guardian)
-
-- void Timer_Tick(object sender, EventArgs e) - game loop, handles spawning, end of the game, viewing menu, input
-
-- void MazeRunner_KeyUp(object sender, KeyEventArgs e) - detects whether particular keys are up
-
-- void MazeRunner_KeyDown(object sender, KeyEventArgs e)  - detects whether particular keys are down
-
-- void NewGame_Click(object sender, EventArgs e) - detects whether user clicked on “New Game” button and starts the game if so
-
-- void Exit_Click(object sender, EventArgs e) - detects whether user clicked on “Exit” button and exits the application if so
+- *void Render(GameMap gameMap)* - renders everything, i.e scene, minimap, sprite (guardian)
+- *void Timer_Tick(object sender, EventArgs e)* - game loop, handles spawning, end of the game, viewing menu, input
+- *void MazeRunner_KeyUp(object sender, KeyEventArgs e)* - detects whether particular keys are up
+- *void MazeRunner_KeyDown(object sender, KeyEventArgs e)*  - detects whether particular keys are down
+- *void NewGame_Click(object sender, EventArgs e)* - detects whether user clicked on “New Game” button and starts the game if so
+- *void Exit_Click(object sender, EventArgs e)* - detects whether user clicked on “Exit” button and exits the application if so
+  
+## Sources
+- http://www.playfuljs.com/a-first-person-engine-in-265-lines/
+- https://lodev.org/cgtutor/raycasting.html
+- https://lodev.org/cgtutor/raycasting3.html
+- https://www.itnetwork.cz/algoritmy/bludiste/algoritmus-tvorba-nahodneho-bludiste/
