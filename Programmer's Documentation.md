@@ -109,11 +109,10 @@ Info that is being checked about Key is whether the particular key is up or down
   - void Move(GameMap gameMap) - handles moving; moves if it has steps to make, if not, compute it's way and move that way
 
 #### Map
-- **attributes**:
+- **properties**:
   - int GridSize - number of tiles on one side (width=height), odd and > 3
   - Tile[,] Grid - grid where info about existence of wall/foundation/empty space on each tile is stored
   - int TileSize - size of one tile in the grid (width=height)
-
 - **methods** (described closely [here](https://github.com/peskaf/2D-MazeRunner)):
   - void CreateFoundation() - creation of template to build maze in
   - int FoundationsLeft() - returns how many foundations there are left in the grid
@@ -121,26 +120,24 @@ Info that is being checked about Key is whether the particular key is up or down
   - void BuildWall(Random random) - build wall from returned random foundation
   - void BuildMaze() - handle all building functions
 
-GameMap
-attributes:
-Map map - map game takes place in
-Player player - player set to the map
-Enemy enemy - enemy set to the map
+#### GameMap
+- **attributes**:
+  - Map map - map game takes place in (maze)
+  - Player player - player that is set into the map
+  - Guardian guardian - guardian that is set into the map
+- **methods**:
+  - Ray Raycast(Position pos, Vector direction, int max) - cast one ray and return it, takes player's position, his looking direction and max ray size allowed
+  - List<Ray> CastRays(int screenWidth) - cast all the rays to fill the screen width
 
-methods:
-Tuple<double, int, double> Raycast(int x, int y, Vector direction, int max) - cast one ray and return info about it <size, wall it hit, angle it was cast from>, takes x, y coordinates of position of the player, hist direction and max length of the ray it can cast 
+### Functions:
+- void Render(GameMap gameMap) - renders everything, i.e scene, minimap, sprite (guardian)
 
-List<Tuple<double, int, double>> CastRays(int screenWidth) - cast all the rays to fill the screen width
+- void Timer_Tick(object sender, EventArgs e) - game loop, handles spawning, end of the game, viewing menu, input
 
-## Functions:
-void Render(GameMap gameMap) - renders everything, i.e scene, minimap, sprite
+- void MazeRunner_KeyUp(object sender, KeyEventArgs e) - detects whether particular keys are up
 
-void timer1_Tick(object sender, EventArgs e) - game loop, handles spawning, end of the game, viewing menu, input
+- void MazeRunner_KeyDown(object sender, KeyEventArgs e)  - detects whether particular keys are down
 
-void MazeRunner_KeyUp(object sender, KeyEventArgs e) - detects whether particular keys are up
+- void NewGame_Click(object sender, EventArgs e) - detects whether user clicked on “New Game” button and starts the game if so
 
-void MazeRunner_KeyDown(object sender, KeyEventArgs e)  - detects whether particular keys are down
-
-void NewGame_Click(object sender, EventArgs e) - detects whether user clicked on “New Game” button and starts the game if so
-
-void Exit_Click(object sender, EventArgs e) - detects whether user clicked on “Exit” button and exits the application if so
+- void Exit_Click(object sender, EventArgs e) - detects whether user clicked on “Exit” button and exits the application if so
