@@ -98,9 +98,9 @@ namespace MazeRunner
                     {
                         if (stripe > 0 && stripe < DisplayRectangle.Width && rays[stripe].Size * Math.Cos(gameMap.Player.Direction.GetAngle() - rays[stripe].Angle) > transformY)
                         {
-                            int texX = (int)((stripe - (-spriteSize / 2 + spriteScreenX)) * gameMap.Guardian.texture.Width / spriteSize); // x coordinate in sprite texture
+                            int texX = (int)((stripe - (-spriteSize / 2 + spriteScreenX)) * gameMap.Guardian.Texture.Width / spriteSize); // x coordinate in sprite texture
                             Rectangle destRect = new(stripe, drawStartY, 1, (int)spriteSize); // where to display current stripe of sprite texture
-                            myBuffer.Graphics.DrawImage(gameMap.Guardian.texture, destRect, texX, 0, 1, gameMap.Guardian.texture.Height, GraphicsUnit.Pixel);
+                            myBuffer.Graphics.DrawImage(gameMap.Guardian.Texture, destRect, texX, 0, 1, gameMap.Guardian.Texture.Height, GraphicsUnit.Pixel);
                         }
                     }
                 }

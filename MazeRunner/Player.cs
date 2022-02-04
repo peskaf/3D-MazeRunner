@@ -8,8 +8,6 @@ namespace MazeRunner
         public Position StartPosition { get; init; } // where player starts
         public int Step { get; init; } = 7; // size of player's step
         public double FOV { get; init; } // Field of view (radians)
-
-
         public double RotationSpeed { get; init; } = 2.9; // in degrees/10 ms
         public bool IsKilled { get; set; } = false;
 

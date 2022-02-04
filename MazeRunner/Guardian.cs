@@ -6,11 +6,11 @@ namespace MazeRunner
         public Position CurrPosition { get; set; }
         public Position StartPosition { get; init; }
         public int Step { get; init; } = 6; // how much points in direction to go
-        public Bitmap texture = new(Properties.Resources.protector); // texture uploaded to Resources.resx
+        public Bitmap Texture = new(Properties.Resources.protector); // texture uploaded to Resources.resx
         public long SpawnTime { get; init; } = 2000; // millis to elapse before enemy spawns
         public bool IsSpawned { get; private set; } = false;
         public int StepsToMake { get; set; } = 0; // how much steps to make before computing next steps (made to reach the middle of each square it needs to visit)
-        private Tuple<int, int> nextStepDirection = new(0,0); // which it goes next
+        private Tuple<int, int> nextStepDirection = new(0,0); // where it goes next
 
         public Guardian(Position startPos)
         {
