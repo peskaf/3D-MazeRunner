@@ -25,6 +25,7 @@ namespace MazeRunner
             {
                 // top wall
                 Grid[0, j] = Tile.Wall;
+
                 // bottom wall
                 Grid[GridSize - 1, j] = Tile.Wall;
 
@@ -121,7 +122,7 @@ namespace MazeRunner
         }
         private void BuildMaze() // handle all building functions
         {
-            Random random = new Random();
+            Random random = new();
             CreateFoundation();
             while (FoundationsLeft() != 0)
             {

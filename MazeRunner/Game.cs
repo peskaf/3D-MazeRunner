@@ -38,14 +38,6 @@ namespace MazeRunner
             {
                 // convert each ray into line that is to be displayed on screen
                 float currentAngle = Convert.ToSingle(gameMap.Player.Direction.GetAngle() - ray.Angle);
-                if (currentAngle < 0)
-                {
-                    currentAngle += Convert.ToSingle(2 * Math.PI);
-                }
-                else if (currentAngle > 0)
-                {
-                    currentAngle -= Convert.ToSingle(2 * Math.PI);
-                }
 
                 float disT = Convert.ToSingle(ray.Size * Math.Cos(currentAngle));
                 float wallHeight = Convert.ToSingle((gameMap.Map.TileSize * DisplayRectangle.Height) / disT);

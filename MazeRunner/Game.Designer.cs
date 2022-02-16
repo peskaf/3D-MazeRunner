@@ -54,9 +54,9 @@
             this.GameOver.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GameOver.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GameOver.ForeColor = System.Drawing.Color.Red;
-            this.GameOver.Location = new System.Drawing.Point(339, 417);
+            this.GameOver.Location = new System.Drawing.Point(328, 326);
             this.GameOver.Name = "GameOver";
-            this.GameOver.Size = new System.Drawing.Size(1085, 235);
+            this.GameOver.Size = new System.Drawing.Size(543, 117);
             this.GameOver.TabIndex = 0;
             this.GameOver.Text = "GAME OVER";
             this.GameOver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -71,9 +71,9 @@
             this.NewGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NewGame.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.NewGame.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.NewGame.Location = new System.Drawing.Point(369, 155);
+            this.NewGame.Location = new System.Drawing.Point(339, 131);
             this.NewGame.Name = "NewGame";
-            this.NewGame.Size = new System.Drawing.Size(1036, 235);
+            this.NewGame.Size = new System.Drawing.Size(519, 117);
             this.NewGame.TabIndex = 1;
             this.NewGame.Text = "NEW GAME";
             this.NewGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -89,9 +89,9 @@
             this.Exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Exit.Location = new System.Drawing.Point(665, 680);
+            this.Exit.Location = new System.Drawing.Point(485, 522);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(445, 235);
+            this.Exit.Size = new System.Drawing.Size(224, 117);
             this.Exit.TabIndex = 2;
             this.Exit.Text = "EXIT";
             this.Exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -100,9 +100,9 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.Menu.Location = new System.Drawing.Point(319, 110);
+            this.Menu.Location = new System.Drawing.Point(179, 81);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1134, 849);
+            this.Menu.Size = new System.Drawing.Size(834, 616);
             this.Menu.TabIndex = 3;
             this.Menu.TabStop = false;
             // 
@@ -115,16 +115,16 @@
             this.Victory.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Victory.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Victory.ForeColor = System.Drawing.Color.Lime;
-            this.Victory.Location = new System.Drawing.Point(447, 408);
+            this.Victory.Location = new System.Drawing.Point(378, 326);
             this.Victory.Name = "Victory";
-            this.Victory.Size = new System.Drawing.Size(854, 235);
+            this.Victory.Size = new System.Drawing.Size(427, 117);
             this.Victory.TabIndex = 4;
             this.Victory.Text = "VICTORY!";
             this.Victory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Game
             // 
-            this.ClientSize = new System.Drawing.Size(1774, 1029);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.Victory);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.NewGame);
@@ -132,8 +132,8 @@
             this.Controls.Add(this.Menu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1800, 1100);
-            this.MinimumSize = new System.Drawing.Size(1800, 1100);
+            this.MaximumSize = new System.Drawing.Size(1200, 800);
+            this.MinimumSize = new System.Drawing.Size(1200, 800);
             this.Name = "Game";
             this.Text = "MazeRunner";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MazeRunner_KeyDown);
